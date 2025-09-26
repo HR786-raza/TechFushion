@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Post | TechFusion</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="container">
+            <div class="logo">
+                <img src="Images/Logo.png" alt="TechFusion logo" class="logo-img">
+                <h1>TechFusion</h1>
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="index.html#blog">Blog</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container blog-post-detail">
+        <article id="post-content"></article>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 TechFusion. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const params = new URLSearchParams(window.location.search);
+            const postId = params.get("id");
+
+            const blogPosts = {
+  "1": {
+    title: "Why Web3 Matters",
+    content: `
+      <img src="Images/web3.jpg" alt="Web3" style="width:100%; border-radius: 8px; margin-bottom: 1rem;">
+      <p><strong>Web3</strong> represents the next phase of the internet—decentralized, user-centric, and powered by blockchain. Unlike Web2, which relies heavily on centralized platforms like Facebook or Google, Web3 enables users to interact peer-to-peer without intermediaries.</p>
+      <p>Key technologies driving Web3 include:</p>
+      <ul>
+        <li><strong>Blockchain</strong> - Distributed ledgers securing digital ownership</li>
+        <li><strong>Smart Contracts</strong> - Self-executing agreements on-chain</li>
+        <li><strong>Decentralized Apps (DApps)</strong> - Apps without central servers</li>
+      </ul>
+      <p>Benefits of Web3:</p>
+      <ol>
+        <li>Ownership of digital assets</li>
+        <li>Improved privacy and data control</li>
+        <li>Open-source and censorship-resistant applications</li>
+      </ol>
+      <p>Although Web3 is still in its early stages, it holds the potential to transform industries from finance to social media by removing central authorities and putting users in control.</p>
+    `
+  },
+  "2": {
+    title: "Top JavaScript Frameworks",
+    content: `
+      <img src="Images/javascript.jpg" alt="JavaScript Frameworks" style="width:100%; border-radius: 8px; margin-bottom: 1rem;">
+      <p>JavaScript frameworks streamline the process of building robust front-end applications. Here's a comparison of three top frameworks:</p>
+
+      <h4>React</h4>
+      <p>Developed by Facebook, React is a UI library that emphasizes reusable components and a virtual DOM for performance. Ideal for dynamic, data-heavy apps.</p>
+
+      <h4>Vue</h4>
+      <p>Vue is a lightweight, progressive framework known for its simplicity and flexibility. It combines the best of Angular and React while being beginner-friendly.</p>
+
+      <h4>Angular</h4>
+      <p>Maintained by Google, Angular is a full-fledged MVC framework offering two-way data binding, dependency injection, and extensive tooling for enterprise-grade apps.</p>
+
+      <p><strong>Conclusion:</strong> Choose React for flexibility and ecosystem, Vue for simplicity, and Angular for all-in-one enterprise needs.</p>
+    `
+  },
+  "3": {
+    title: "AI in 2025",
+    content: `
+      <img src="Images/AI.jpg" alt="AI 2025" style="width:100%; border-radius: 8px; margin-bottom: 1rem;">
+      <p>Artificial Intelligence (AI) is not just a buzzword—it's a reality that is reshaping industries, economies, and our everyday lives. By 2025, AI will be more embedded into society than ever before, powering innovation from healthcare to entertainment.</p>
+
+      <h4>Smarter Healthcare</h4>
+      <p>AI will assist doctors in diagnosing diseases faster and more accurately. Personalized medicine will use machine learning to tailor treatments to individual genetics and lifestyle factors.</p>
+
+      <h4>Autonomous Systems</h4>
+      <p>From self-driving cars to autonomous drones, AI will revolutionize transport and logistics. Expect real-time traffic navigation, safer roadways, and automated deliveries becoming standard in urban environments.</p>
+
+      <h4>AI in Daily Applications</h4>
+      <p>Smart assistants, recommendation engines, and automated content creation will be more nuanced and context-aware, providing hyper-personalized experiences to users.</p>
+
+      <h4>AI & Creativity</h4>
+      <p>Generative AI models like GPT and DALL·E will evolve further to assist in writing, music composition, game design, and even filmmaking, democratizing creativity.</p>
+
+      <h4>Ethical Considerations</h4>
+      <p>Alongside these advancements, governments and organizations will focus on regulation. Key areas will include data privacy, algorithmic transparency, deepfake prevention, and fairness in AI decision-making systems.</p>
+
+      <p><strong>Conclusion:</strong> The AI landscape in 2025 promises to bring transformative changes. The real challenge will be to balance innovation with responsibility, ensuring AI benefits all of humanity.</p>
+    `
+  }
+};
+
+            const post = blogPosts[postId];
+            const postContainer = document.getElementById("post-content");
+
+            if (post) {
+                postContainer.innerHTML = `
+          <h2>${post.title}</h2>
+          ${post.content}
+          <p><a href="index.html#blog">← Back to blog</a></p>
+        `;
+            } else {
+                postContainer.innerHTML = "<p>Post not found.</p>";
+            }
+        });
+    </script>
+</body>
+
+</html>
